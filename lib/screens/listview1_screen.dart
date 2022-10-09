@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class ListView1Screen extends StatelessWidget { 
    
   List<String> options = const['Megaman', 'Metal Gear', 'Final Fantasy','Mario Bros']; 
