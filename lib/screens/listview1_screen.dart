@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class ListView1Screen extends StatelessWidget { 
-   
+  //Esta lista puede ser obtenida mediante el consuma de una api 
   List<String> options = const['Megaman', 'Metal Gear', 'Final Fantasy','Mario Bros']; 
 
    ListView1Screen({Key? key}) : super(key: key);

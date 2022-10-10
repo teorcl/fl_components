@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ListView2Screen extends StatelessWidget {
+  //Esta lista puede ser obtenida mediante el consuma de una api
   List<String> options = const [
     'Megaman',
     'Metal Gear',
