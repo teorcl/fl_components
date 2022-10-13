@@ -17,8 +17,9 @@ class HomeScreen extends StatelessWidget {
           leading: const Icon(Icons.access_alarms_sharp),
           title: const Text('Nombre de ruta'),
           onTap: () {
-            final route = MaterialPageRoute(builder: (context) => ListView1Screen(),);
-            Navigator.push(context, route);
+            //final route = MaterialPageRoute(builder: (context) => ListView1Screen(),);
+            //Navigator.push(context, route);
+            Navigator.pushNamed(context, 'alert');
           },
         ), 
         separatorBuilder: (_, __) => const Divider(), 
