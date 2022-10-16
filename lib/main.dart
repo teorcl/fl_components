@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       //     backgroundColor: Colors.red,
       //     elevation: 0),
       // ),
-      theme: AppTheme.darkTheme, //Note que las lineas de la 22 a 26 hacen lo mismo que esta solita
+      theme: AppTheme.lightTheme, //Note que las lineas de la 22 a 26 hacen lo mismo que esta solita
 
     );
   }
