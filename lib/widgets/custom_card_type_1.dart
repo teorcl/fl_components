@@ -19,7 +19,7 @@ class CustomCardType1 extends StatelessWidget {
           const ListTile(
             leading: Icon(Icons.favorite, color: AppTheme.primary,size: 50,),
             title: Text('Esto es una tarjeta'),
-            subtitle: Text('Pariatur labore duis in aute consectetur ea adipisicing voluptate eiusmod consequat dolor. Aliqua laboris et commodo esse ex. Id nulla eiusmod ex do reprehenderit minim aliquip sunt fugiat non aute. Consectetur pariatur anim consectetur ullamco consequat Lorem cillum pariatur do ad exercitation sint voluptate reprehenderit.'),
+            subtitle: Text('Pariatur labore duis in aute consectetur ea adipisicing voluptate eiusmod consequat dolor. Aliqua laboris et commodo esse ex. Id nulla eiusmod ex do reprehenderit minim aliquip sunt fugiat non aute.'),
           ),
 
           Padding(
