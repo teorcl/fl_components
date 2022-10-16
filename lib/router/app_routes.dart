@@ -5,6 +5,7 @@ import 'package:fl_components/screens/screens.dart';
 class AppRoutes{
 
   static const initialRoute = 'home';
+  
   static final menuOptions = <MenuOption>[
     //TODO: borrar home
     MenuOption(route: 'home', name: 'Home Screen', screen: const HomeScreen(), icon: Icons.home),
