@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/*
+*Este es el tema global que se le está aplicando a la app
+*/
+
 class AppTheme{
 
   static const Color primary = Colors.indigo;
@@ -11,6 +15,10 @@ class AppTheme{
     appBarTheme: const AppBarTheme(
       color: primary,
       elevation: 0
+    ),
+
+    textButtonTheme:  TextButtonThemeData(
+      style: TextButton.styleFrom(foregroundColor: primary) 
     )
 
   );
