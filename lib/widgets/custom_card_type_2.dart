@@ -2,7 +2,16 @@ import 'package:fl_components/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomCardType2 extends StatelessWidget {
-  const CustomCardType2 ({super.key});
+
+  /*======Propiedades======*/
+  final String imageUrl;
+  final String? nameCard;
+
+  const CustomCardType2 ({
+    super.key, 
+    required this.imageUrl,  
+    this.nameCard
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,21 +24,22 @@ class CustomCardType2 extends StatelessWidget {
       shadowColor: AppTheme.primary.withOpacity(0.6),
       child: Column(
         children:   [
-          const FadeInImage(
-            image: NetworkImage('https://upload.wikimedia.org/wikipedia/commons/3/35/Neckertal_20150527-6384.jpg'), 
-            placeholder: AssetImage('assets/jar-loading.gif'),
+          FadeInImage(
+            image: NetworkImage(imageUrl), 
+            placeholder: const AssetImage('assets/jar-loading.gif'),
             width: double.infinity,
             height: 230,
             fit: BoxFit.cover, //Para que la imagen se adapte al widget
-            fadeInDuration: Duration(milliseconds: 300),
+            fadeInDuration: const Duration(milliseconds: 300),
           ),
 
-          Container(
-            alignment: AlignmentDirectional.centerEnd,
-            padding: const EdgeInsets.only(right: 20, top: 10, bottom: 10),
-            child: const Text('Beatifull paisaje') //Texto envuelto en un container
+          if(nameCard != null)  //Esto indica que si el nameCard es diferente de null que se contruya el widgets container que se encuentra a continuacion si es null entonces no se construye el text dentro del container
+            Container(
+              alignment: AlignmentDirectional.centerEnd,
+              padding: const EdgeInsets.only(right: 20, top: 10, bottom: 10),
+              child: Text(nameCard ?? 'Tarjeta sin titulo') //Texto envuelto en un container, notese que el nameCard es opcional con ?? paso un valor no llega ninguno
 
-          ) 
+            ) 
         ],
       ),
     );
