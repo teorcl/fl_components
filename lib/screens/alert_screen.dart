@@ -1,3 +1,4 @@
+import 'package:fl_components/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class AlertScreen extends StatelessWidget {
@@ -6,10 +7,25 @@ class AlertScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+
       body: Center(
-         child: Text('AlertScreen'),
+         child: ElevatedButton(
+          onPressed: () { }, 
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            child: Text('Mostrar Alerta', style: TextStyle(fontSize: 16)),
+          )
+        )
       ),
+
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.close),
+        onPressed:() {
+          Navigator.pop(context);
+        }, 
+      ),
+
     );
   }
 }
