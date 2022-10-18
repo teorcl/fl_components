@@ -6,18 +6,30 @@ class AlertScreen extends StatelessWidget {
   
   void displayDialog( BuildContext context){
     showDialog(
-      barrierDismissible: true,
-      context: context, 
+      barrierDismissible: false, //Esto me permite cerrar el dialog cuando hago click en la parte oscura de la pantalla, si está en true
+       context: context, 
       builder: (context) {
         return  AlertDialog(
           elevation: 5,
           title: const Text('Titulo'),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20) 
+          ),
           content: Column(
             mainAxisSize: MainAxisSize.min ,
             children: const [
-              Text('Este es el contenido de la alerta')
+              Text('Este es el contenido de la alerta'),
+              SizedBox(height: 10),
+              FlutterLogo(size: 70,)
             ],
           ),
+
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context), 
+              child: const Text('Cancelar')
+            )
+          ],
         );
       },
     );
