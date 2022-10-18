@@ -13,6 +13,7 @@ class AppRoutes{
     MenuOption(route: 'listview2', name: 'Listview tipo 2', screen: ListView2Screen(), icon: Icons.list_alt),
     MenuOption(route: 'alert', name: 'Alertas - alerts', screen: const AlertScreen(), icon: Icons.add_alert_sharp),
     MenuOption(route: 'card', name: 'Tarjetas - cards', screen: const CardScreen(), icon: Icons.credit_card),
+    MenuOption(route: 'avatar', name: 'Circle Avatar', screen: const AvatarScreen(), icon: Icons.person_pin),
     
   ];
 
