@@ -40,13 +40,16 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
       ),
       
       body: Center(
-         child: Container(
+         child: AnimatedContainer(
+          duration:  const Duration(milliseconds: 400),
+          curve: Curves.easeInOutCubic,
           width: _width,
           height: _height,
           decoration: BoxDecoration(
             color: _color,
             borderRadius: _borderRadius
-          ),
+          ), 
+
          ),
       ),
 
