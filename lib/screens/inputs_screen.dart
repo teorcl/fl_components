@@ -10,6 +10,7 @@ class InputsScreen extends StatelessWidget {
 
     final GlobalKey<FormState> myFormKey = GlobalKey<FormState>();
 
+    //*Esto se debe separar de la construcción de los widgets porque es lógica de negocio 
     final Map<String, String> formValues = {
       'first_name':'Teodoro',
       'last_name' :'Calle',
@@ -38,10 +39,23 @@ class InputsScreen extends StatelessWidget {
           
                 CustomInputField(labelText: 'Email', hintText: 'Correo del usuario',keyboardType: TextInputType.emailAddress, formProperty: 'email', formValues: formValues,),
                 const SizedBox(height: 30),
-          
+                         
                 CustomInputField(labelText: 'Password', hintText: 'Contraseña',isObscureText: true, formProperty: 'password', formValues: formValues,),
                 const SizedBox(height: 30),
-          
+
+                DropdownButtonFormField(
+                  items: const [
+                    DropdownMenuItem(value: 'Admin' ,child: Text('Admin')),
+                    DropdownMenuItem(value: 'Superuser' ,child: Text('Superuser')),
+                    DropdownMenuItem(value: 'Sr.Developer' ,child: Text('Sr.Developer')),
+                    DropdownMenuItem(value: 'Jr.Developer' ,child: Text('Jr.Developer')),
+                  ], 
+                  onChanged: (value) {
+                    formValues['role'] = value ?? 'Admin';
+                  },
+                ),
+                const SizedBox(height: 30),
+             
                 ElevatedButton(
                   child: const SizedBox(
                     width: double.infinity,
