@@ -30,16 +30,16 @@ class InputsScreen extends StatelessWidget {
             child: Column(
               children:  [
                 
-                const CustomInputField(labelText: 'Nombre', hintText: 'Nombre del usuario'),
+                CustomInputField(labelText: 'Nombre', hintText: 'Nombre del usuario', formProperty: 'first_name', formValues: formValues,),
                 const SizedBox(height: 30),
           
-                const CustomInputField(labelText: 'Apellido', hintText: 'Apellido del usuario'),
+                CustomInputField(labelText: 'Apellido', hintText: 'Apellido del usuario', formProperty: 'last_name', formValues: formValues,),
                 const SizedBox(height: 30),
           
-                const CustomInputField(labelText: 'Email', hintText: 'Correo del usuario',keyboardType: TextInputType.emailAddress,),
+                CustomInputField(labelText: 'Email', hintText: 'Correo del usuario',keyboardType: TextInputType.emailAddress, formProperty: 'email', formValues: formValues,),
                 const SizedBox(height: 30),
           
-                const CustomInputField(labelText: 'Password', hintText: 'Contraseña',isObscureText: true,),
+                CustomInputField(labelText: 'Password', hintText: 'Contraseña',isObscureText: true, formProperty: 'password', formValues: formValues,),
                 const SizedBox(height: 30),
           
                 ElevatedButton(
@@ -56,7 +56,7 @@ class InputsScreen extends StatelessWidget {
                       print('Formulario no válido');
                       return;
                     }
-                    // TODO: Cuando haga tap en el boton quiero imprimir los valores del formulario
+                    //*Imprimir por consola los valores ingresados en el formulario cuando haga tap en el boton de guardar
                     print(formValues);
                   },
                 )
