@@ -55,6 +55,14 @@ class _ListViewBuilderScreenState extends State<ListViewBuilderScreen> {
     setState(() {});
   }
 
+  Future<void> onRefresh() async {
+    await Future.delayed(const Duration(seconds: 2));
+    final lastId = imagesIds.last;
+    imagesIds.clear(); //* Con esto limpio las imagenes que tenía previamente en la pantalla
+    imagesIds.add(lastId + 1);
+    addFiveElement();
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -68,19 +76,23 @@ class _ListViewBuilderScreenState extends State<ListViewBuilderScreen> {
         child: Stack(
 
           children: [
-            ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              controller: scrollController,
-              itemCount: imagesIds.length,
-              itemBuilder: (BuildContext context, int index) {
-                return  FadeInImage(
-                  placeholder: const AssetImage('assets/jar-loading.gif'), 
-                  image: NetworkImage('https://picsum.photos/500/300?image=${ imagesIds[index] }'),
-                  height: 230,
-                  width: double.infinity,
-                  fit: BoxFit.cover, 
-                );
-              },
+            RefreshIndicator(
+              onRefresh: onRefresh,
+              color: AppTheme.primary,
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                controller: scrollController,
+                itemCount: imagesIds.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return  FadeInImage(
+                    placeholder: const AssetImage('assets/jar-loading.gif'), 
+                    image: NetworkImage('https://picsum.photos/500/300?image=${ imagesIds[index] }'),
+                    height: 230,
+                    width: double.infinity,
+                    fit: BoxFit.cover, 
+                  );
+                },
+              ),
             ),
 
             if(isLoading) //Note la sintaxis no usa las {}
