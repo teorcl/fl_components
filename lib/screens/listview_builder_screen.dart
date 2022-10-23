@@ -37,6 +37,16 @@ class _ListViewBuilderScreenState extends State<ListViewBuilderScreen> {
     addFiveElement();
     isLoading = false;
     setState(() {});
+
+    if(scrollController.position.pixels + 100 <= scrollController.position.maxScrollExtent) return;//No haga nada sino está al final del scroll
+
+    scrollController.animateTo(
+      //offset es la posición en la que arranca
+      scrollController.position.pixels +120,        
+      duration: const Duration(milliseconds: 300), 
+      curve: Curves.fastOutSlowIn
+    );
+
   }
 
   void addFiveElement(){
@@ -73,11 +83,12 @@ class _ListViewBuilderScreenState extends State<ListViewBuilderScreen> {
               },
             ),
 
-            Positioned(
-              bottom: 40,
-              left: size.width*0.5 - 35,
-              child: const _LoadingIcon()
-            )
+            if(isLoading) //Note la sintaxis no usa las {}
+              Positioned(
+                bottom: 40,  
+                left: size.width*0.5 - 35,
+                child: const _LoadingIcon()
+              )
 
             // const Positioned(
             //   child: Center(
