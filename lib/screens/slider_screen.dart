@@ -12,7 +12,7 @@ class SliderScreen extends StatefulWidget {
 class _SliderScreenState extends State<SliderScreen> {
 
   double _sliderValue = 100;
-  
+  bool _isChecked = true;
 
   @override
   Widget build(BuildContext context) {
@@ -20,32 +20,68 @@ class _SliderScreenState extends State<SliderScreen> {
       appBar: AppBar( 
         title: const Text('Slider && Checks'),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
+      body: Column(
+        children: [
       
-            Slider.adaptive(
-              min: 50,
-              max: 400,
-              divisions: 10,
-              activeColor: AppTheme.primary,
-              value: _sliderValue, 
-              onChanged: (value) {
-                _sliderValue = value;
-                setState(() {});
-              },
-            ),
-      
-            Image(
-              image: NetworkImage('https://www.pngmart.com/files/3/Dragon-Ball-Goku-PNG-Transparent-Image.png'),
-              fit: BoxFit.contain,
-              width: _sliderValue,
-            ),
+          Slider.adaptive(
+            min: 50,
+            max: 400,
+            divisions: 10,
+            activeColor: AppTheme.primary,
+            value: _sliderValue, 
+            onChanged: _isChecked ? (value) {
+              _sliderValue = value;
+              setState(() {});
+            } : null
+          ),
 
-            const SizedBox(height: 50,)
+          // Checkbox(
+          //   value: _isChecked, 
+          //   onChanged: (value) {
+          //     _isChecked = value ?? true;
+          //     setState(() {});
+          //    },
+          // ),
+
+          // CheckboxListTile(
+          //   title: const Text('Habilitar Slider'),
+          //   activeColor: AppTheme.primary,
+          //   value: _isChecked, 
+          //   onChanged: (value) { 
+          //     _isChecked = value ?? true;
+          //     setState(() { });
+          //   },
+          // ),
+
+          // Switch(
+          //   activeColor: AppTheme.primary,
+          //   value: _isChecked,
+          //   onChanged: (value) => setState(() {
+          //     _isChecked = value ;
+          //   })
+          // ),
       
-          ],
-        ),
+          SwitchListTile.adaptive(
+            title: const Text('Habilitar Slider'),
+            activeColor: AppTheme.primary,
+            value: _isChecked, 
+            onChanged: (value) => setState(() {_isChecked = value ;})
+          ),
+
+          const AboutListTile(),
+
+          Expanded(
+            child: SingleChildScrollView(
+              child: Image(
+                image: const NetworkImage('https://www.pngmart.com/files/3/Dragon-Ball-Goku-PNG-Transparent-Image.png'),
+                fit: BoxFit.contain,
+                width: _sliderValue,
+              ),
+            ),
+          ),
+
+                
+        ],
       ),
     );
   }
