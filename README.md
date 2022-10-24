@@ -6,5 +6,5 @@ A new Flutter project.
 
 En este proyecto se ponen en practica una gran cantidad de componentes y widgets de gran utilidad en flutter
 
-### A continuación un link para video demostración del proyecto
+### A continuación un link donde pueden ver un video demostración del proyecto
 #### Demo: https://www.youtube.com/watch?v=YgFmvwyEEo4&t=5s
